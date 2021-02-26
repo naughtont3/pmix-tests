@@ -20,6 +20,13 @@ VERBOSE=0
 #                so there are subset of active, while trying
 #                to get the full set of tasks done.)
 #
+#               MAX_PROC <= min available number slots on 1 node,
+#               because we do not use oversubscription flag.
+#
+#               Example: If have only 1 node with 8 slots (cores),
+#               the max value for MAX_PROC is 8.  If have 2 node for
+#               total of 16 slots (cores), MAX_PROC can be up to 16.
+#
 #   END      -- Upper bound on number of processes to startup.
 #               This is used to calculate the total 'NTASKS'
 #               that will be run through the system.
