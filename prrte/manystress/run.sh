@@ -6,9 +6,10 @@ FINAL_RTN=0
 # Number of nodes - for accounting/verification purposes
 NUM_NODES=${CI_NUM_NODES:-1}
 
-NUM_CORES_PER_NODE=8
+# Number of cores in each node
+NUM_CORES_PER_NODE=20
 
-# scale test based on number of nodes (assume 20 cores per node)
+# Scale test based on number of nodes
 TTL_NUM_CORES=$(expr $NUM_NODES \* $NUM_CORES_PER_NODE)
 
 # Enable more verbose output (set VERBOSE=1)
