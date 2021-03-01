@@ -6,8 +6,8 @@ FINAL_RTN=0
 # Number of nodes - for accounting/verification purposes
 NUM_NODES=${CI_NUM_NODES:-1}
 
-# Number of cores in each node
-NUM_CORES_PER_NODE=20
+# Number of cores in each node (default to 20)
+NUM_CORES_PER_NODE=${CI_NUM_CORES_PER_NODE:-20}
 
 # Scale test based on number of nodes
 TTL_NUM_CORES=$(expr $NUM_NODES \* $NUM_CORES_PER_NODE)
@@ -83,7 +83,7 @@ _run_stress_test()
     # TJN: Moved 'END' to top-of-file
     export NTASKS=$(expr $END - $START)
 
-    echo "#  INFO: NUM_NODES=$NUM_NODES TTL_NUM_CORES=$TTL_NUM_CORES MAX_PROC=$MAX_PROC END=$END" | tee -a output.txt
+    echo "#  INFO: NUM_NODES=$NUM_NODES NUM_CORES_PER_NODE=$NUM_CORES_PER_NODE TTL_NUM_CORES=$TTL_NUM_CORES MAX_PROC=$MAX_PROC END=$END" | tee -a output.txt
     echo "# SETUP: MAX_PROC=$MAX_PROC START=$START END=$END NTASKS=$NTASKS" | tee  -a output.txt
 
     export mycount=0

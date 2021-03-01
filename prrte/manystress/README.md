@@ -13,10 +13,13 @@ parts of the system.
 See the `END` and `MAX_PROC` variables in the middle of the script for
 setting the above thresholds.  Currently, this is being set based on the
 number of resources (nodes and cores):
- - `MAX_PROC` is set to `CI_NUM_NODES` times a hardcoded `NUM_CORES_PER_NODE`
+ - `MAX_PROC` is set to `CI_NUM_NODES` times a `NUM_CORES_PER_NODE`
  - `END` is set to `n` x total number of cores (e.g., 3 x `MAX_PROC`)
-
 The intent is to have much more work than available cores to keep things busy.
+
+ - Note: Use `CI_NUM_CORES_PER_NODE` env var to override the default number
+   of cores per node.  Since this is non-standard, we assume a default but
+   adding this in case we need to set it via the CI/CD environment.
 
 TODO:
  - NOTE: The validty checks do few grep's of output file

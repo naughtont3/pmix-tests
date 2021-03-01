@@ -12,6 +12,11 @@ export CI_HOSTFILE=`$HOME/bin/generate_pbs_nodefile.pl`
 
 export CI_NUM_NODES=$SLURM_JOB_NUM_NODES
 
+#export CI_NUM_CORES_PER_NODE=8
+export CI_NUM_CORES_PER_NODE=$(echo $SLURM_TASKS_PER_NODE | awk -F\( '{print $1}')
+
+echo "DBG: CI_NUM_CORES_PER_NODE=$CI_NUM_CORES_PER_NODE"
+
 if [ ! -f "$CI_HOSTFILE" ] ; then
     echo "ERROR: Missing CI_HOSTFILE '$CI_HOSTFILE'"
     exit 1
@@ -27,6 +32,9 @@ cat "$CI_HOSTFILE"
 echo "======================"
 echo "==== CI_NUM_NODES ===="
 echo $CI_NUM_NODES
+echo "======================"
+echo "==== CI_NUM_CORES_PER_NODE ===="
+echo $CI_NUM_CORES_PER_NODE
 echo "======================"
 
 echo "START: `date`"
