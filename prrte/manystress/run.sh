@@ -278,8 +278,6 @@ if [[ $LINES -ne 1 ]] ; then
     _shutdown
 fi
 
-# TODO: Make below script smart to scale MAX_PROC and END to num nodes
-
 echo "Sanity check passed"
 
 echo "---- Done"
