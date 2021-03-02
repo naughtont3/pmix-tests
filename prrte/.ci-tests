@@ -6,3 +6,5 @@ prun-wrapper
 cycle
 # PMIx Tool (Debugger) Unit Tests
 debug
+# Add the Mini Stress Test
+ministress
