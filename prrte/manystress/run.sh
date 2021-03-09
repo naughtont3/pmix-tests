@@ -37,17 +37,16 @@ VERBOSE=0
 #               that will be run through the system.
 #
 # Static values for easy testing
-#export MAX_PROC=20
-#export END=100
+# TJN: DEBUG - Try to see if this changes CI status/hang
+export MAX_PROC=20
+export END=100
 #
 #---
 # Setting 'MAX_PROC' to total number of cores that we can use over all nodes
 # Setting 'END'      to 3x number of cores we have to ensure we have many more
 #                     tasks than available cores to run on
-export MAX_PROC=$TTL_NUM_CORES
+#export MAX_PROC=$TTL_NUM_CORES
 #export END=$(expr $TTL_NUM_CORES \* 3)
-# TJN: DEBUG - Try using 2x num cores to see if this changes CI status/hang
-export END=$(expr $TTL_NUM_CORES \* 2)
 
 _shutdown()
 {
