@@ -21,7 +21,18 @@ The intent is to have much more work than available cores to keep things busy.
    of cores per node.  Since this is non-standard, we assume a default but
    adding this in case we need to set it via the CI/CD environment.
 
-TODO:
+Environment Variables
+----------------------
+
+The test assumes/uses the following environment variables.
+
+ - `CI_NUM_NODES` -- number of nodes available for use by test
+ - `CI_HOSTFILE`  -- hostfile with node names for use by test
+ - `CI_NUM_CORES_PER_NODE` -- (optional) number of cores per node
+
+
+TODO
+----
  - NOTE: The validty checks do few grep's of output file
    to check if number of expected matches the config for
    that run.  A bit fragile, and likely needs improvement.
