@@ -45,7 +45,9 @@ VERBOSE=0
 # Setting 'END'      to 3x number of cores we have to ensure we have many more
 #                     tasks than available cores to run on
 export MAX_PROC=$TTL_NUM_CORES
-export END=$(expr $TTL_NUM_CORES \* 3)
+#export END=$(expr $TTL_NUM_CORES \* 3)
+# TJN: DEBUG - Try using 2x num cores to see if this changes CI status/hang
+export END=$(expr $TTL_NUM_CORES \* 2)
 
 _shutdown()
 {
