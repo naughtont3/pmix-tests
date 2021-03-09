@@ -13,7 +13,7 @@ NUM_CORES_PER_NODE=${CI_NUM_CORES_PER_NODE:-20}
 TTL_NUM_CORES=$(expr $NUM_NODES \* $NUM_CORES_PER_NODE)
 
 # Enable more verbose output (set VERBOSE=1)
-VERBOSE=0
+VERBOSE=1
 
 #
 # Control params for _run_stress_test
