@@ -216,9 +216,23 @@ _run_stress_test()
             sleep 0.5
         fi
 
+        # DEBUG - Adding longer sleep to see if that changes things
+        sleep 2
+
         for k0 in "${!finished[@]}" ; do
             unset finished[$k0]
         done
+
+        if [ $VERBOSE -gt 0 ] ; then
+            # Dump remaining list of "still alive"
+            if [ ${#pidarr[@]} -gt 0 ];  then
+                # Note: Using same timestamp for all of these print to help sort output
+                _time_stamp="$(date) : $(date +%s)"
+                for _p in ${!pidarr[@]} ; do
+                    echo "$_time_stamp : ALIVE-LIST-ITEM: $_p" | tee -a output.txt
+                done
+            fi
+        fi
     done
 
     #echo "${!pidarr[@]}"
