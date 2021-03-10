@@ -229,7 +229,7 @@ _run_stress_test()
                 # Note: Using same timestamp for all of these print to help sort output
                 _time_stamp="$(date) : $(date +%s)"
                 for _p in ${!pidarr[@]} ; do
-                    echo "$_time_stamp : ALIVE-LIST-ITEM: $_p" | tee -a output.txt
+                    echo "$_time_stamp : (count=${#pidarr[@]}) ALIVE-LIST-ITEM: $_p" | tee -a output.txt
                 done
             fi
         fi
